@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schweigen Downloads Widget Preview</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: sans-serif;
+            padding: 20px;
+            background: #f0f0f0;
+        }
+
+        #schweigen-downloads-container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Widget Preview</h1>
+    <div id="schweigen-downloads-container" data-url="downloads-data.json"></div>
+    <script src="schweigen-downloads.umd.js"></script>
+    <script>
+        window.addEventListener('load', () => {
+            if (window.renderSchweigenDownloads) {
+                console.log("Mounting widget...");
+            }
+        });
+    </script>
+</body>
+
+</html>

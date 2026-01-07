@@ -1,0 +1,13 @@
+{
+    "name": "Schweigen Downloads",
+    "publicDir": "dist",
+    "size": "large",
+    "library": {
+        "id": "schweigen-downloads-lib",
+        "name": "Schweigen Downloads Library",
+        "components": [
+            "src/app/downloads-table.webflow.tsx"
+        ],
+        "bundleConfig": "./webpack.webflow.js"
+    }
+}

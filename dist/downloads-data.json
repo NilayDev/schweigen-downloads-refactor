@@ -1,0 +1,65 @@
+[
+    {
+        "id": "item1",
+        "display-name": "Silent Range Brochure 2024",
+        "file": {
+            "url": "https://example.com/brochure.pdf"
+        },
+        "download-type": "Brochure",
+        "primary-download-category": "Brochures",
+        "secondary-download-category": "The Good Guys",
+        "filetype": "PDF",
+        "filesize": "2.5 MB",
+        "product-category": "Silent Range"
+    },
+    {
+        "id": "item2",
+        "display-name": "UM1170-9S Installation Guide",
+        "file": {
+            "url": "https://example.com/install.pdf"
+        },
+        "download-type": "Installation Guide",
+        "primary-download-category": "Installation Guides",
+        "secondary-download-category": "Undermount",
+        "filetype": "PDF",
+        "filesize": "1.2 MB",
+        "product-category": "Undermount"
+    },
+    {
+        "id": "item3",
+        "display-name": "WM2190-6S User Manual",
+        "file": {
+            "url": "https://example.com/manual.pdf"
+        },
+        "download-type": "User Manual (Rangehood)",
+        "primary-download-category": "User Manuals",
+        "secondary-download-category": "Wallmount",
+        "filetype": "PDF",
+        "filesize": "3.8 MB",
+        "product-category": "Wallmount"
+    },
+    {
+        "id": "item4",
+        "display-name": "IS4160 Spec Sheet",
+        "large-file-download-url": "https://example.com/spec.pdf",
+        "download-type": "Spec Sheet (Rangehood)",
+        "primary-download-category": "Technical Specifications",
+        "secondary-download-category": "Island",
+        "filetype": "PDF",
+        "filesize": "500 KB",
+        "product-category": "Island"
+    },
+    {
+        "id": "item5",
+        "display-name": "UM1170 SketchUp Model",
+        "file": {
+            "url": "https://example.com/model.skp"
+        },
+        "download-type": "CATALOGUE",
+        "primary-download-category": "CAD Drawings",
+        "secondary-download-category": "Undermount",
+        "filetype": "DWG",
+        "filesize": "5 MB",
+        "product-category": "Undermount"
+    }
+]
