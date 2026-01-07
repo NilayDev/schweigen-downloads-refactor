@@ -13,10 +13,12 @@ export default defineConfig({
             "@": path.resolve(__dirname, "./src"),
         },
     },
+    publicDir: false,
     build: {
-        outDir: 'dist',
+        outDir: 'public/widget',
+        emptyOutDir: false,
         lib: {
-            entry: 'src/app/downloads-table.webflow.tsx',
+            entry: 'src/app/embed.tsx',
             name: 'SchweigenDownloads',
             fileName: (format) => `schweigen-downloads.${format}.js`,
             formats: ['umd'],

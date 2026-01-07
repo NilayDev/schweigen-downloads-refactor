@@ -1,0 +1,22 @@
+[
+    {
+        "id": 1,
+        "name": "User Manual",
+        "filename": "user-manual.pdf",
+        "fileType": "PDF",
+        "filesize": "1.2 MB",
+        "downloadUrl": "https://example.com/manual.pdf",
+        "primaryDownloadCategory": "Manuals",
+        "primaryRelatedProductCategory": "Rangehoods"
+    },
+    {
+        "id": 2,
+        "name": "Product Spec Sheet",
+        "filename": "spec-sheet.pdf",
+        "fileType": "PDF",
+        "filesize": "800 KB",
+        "downloadUrl": "https://example.com/spec.pdf",
+        "primaryDownloadCategory": "Specifications",
+        "primaryRelatedProductCategory": "Cooktops"
+    }
+]
