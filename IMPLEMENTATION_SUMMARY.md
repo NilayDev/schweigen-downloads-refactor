@@ -65,7 +65,7 @@ We followed this precise sequence to build the solution:
 
 ### Step 4: Webflow Wrapper & Typing
 1.  **Wrapper Creation**: Created `downloads-table.webflow.tsx` to interface with the Webflow Designer.
-2.  **Prop Definition**: Mapped the component's feature flags (like `enableSorting`) to Webflow's Sidebar controls.
+2.    *   **Prop Definition**: Mapped the component's feature flags (like `enableSorting`) to Webflow's Sidebar controls. Added `redirectUrl` to allow for post-download navigation.
     *   **Crucial Fix**: Updated generic string types (`"Text"`) to strict Enums (`PropType.Text`) to satisfy the Webflow SDK requirements.
 
 ### Step 5: Build & Deployment Preparation

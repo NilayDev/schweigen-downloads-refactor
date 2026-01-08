@@ -14,6 +14,7 @@ interface SchweigenDownloadsProps {
     searchPlaceholder?: string;
     searchColumn?: string;
     downloadButtonText?: string;
+    redirectUrl?: string;
     // Visibility
     showCmsCollection?: boolean;
     // Features
@@ -41,6 +42,7 @@ function SchweigenDownloads({
     searchPlaceholder,
     searchColumn,
     downloadButtonText,
+    redirectUrl,
     showCmsCollection,
     enableSorting,
     enableFiltering,
@@ -104,6 +106,7 @@ function SchweigenDownloads({
             searchPlaceholder={searchPlaceholder}
             searchColumn={searchColumn}
             downloadButtonText={downloadButtonText}
+            redirectUrl={redirectUrl}
             enableSorting={enableSorting}
             enableFiltering={enableFiltering}
             enablePagination={enablePagination}
@@ -149,6 +152,12 @@ export default declareComponent(SchweigenDownloads, {
             displayName: 'Download Button Text',
             defaultValue: 'Download',
 
+        },
+        redirectUrl: {
+            type: PropType.Text,
+            displayName: 'Redirect URL',
+            defaultValue: '',
+            tooltip: 'URL to redirect to after clicking download (optional)',
         },
         // Visibility
         showCmsCollection: {

@@ -37,6 +37,7 @@ interface DownloadsTableProps {
     searchPlaceholder?: string;
     searchColumn?: string;
     downloadButtonText?: string;
+    redirectUrl?: string;
     // Features
     enableSorting?: boolean;
     enableFiltering?: boolean;
@@ -77,6 +78,7 @@ export default function DownloadsTable({
     // Content
     searchPlaceholder = "Search downloads...",
     downloadButtonText = "Download",
+    redirectUrl,
     // Features
     enableSorting = true,
     enableFiltering = true,
@@ -321,6 +323,17 @@ export default function DownloadsTable({
                                                     href={item.downloadUrl}
                                                     target="_blank"
                                                     rel="noopener noreferrer"
+                                                    onClick={(e) => {
+                                                        if (redirectUrl) {
+                                                            // We want the default action to proceed (opening the download in a new tab)
+                                                            // but we also want to redirect the current window.
+                                                            // Using a small timeout ensures the click event propagates fully if needed,
+                                                            // though for _blank it's usually fine immediately.
+                                                            setTimeout(() => {
+                                                                window.location.href = redirectUrl;
+                                                            }, 100);
+                                                        }
+                                                    }}
                                                     className="inline-flex items-center text-sm font-medium text-slate-500 hover:text-rose-500 transition-colors"
                                                 >
                                                     <span className="mr-2">{downloadButtonText}</span>
