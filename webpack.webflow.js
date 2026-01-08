@@ -9,8 +9,31 @@ module.exports = (config) => {
         '@': path.resolve(__dirname, 'src'),
     };
 
-    // Example: Add a rule for CSS if you are importing CSS files directly
-    // Note: Webflow's bundler handles many things by default, but you can override.
+    // Add CSS rule to support Tailwind via PostCSS
+    // This ensures local Webflow development matches the Vite/Next.js styles
+    config.module.rules.push({
+        test: /\.css$/,
+        include: path.resolve(__dirname, 'src'),
+        use: [
+            'style-loader',
+            {
+                loader: 'css-loader',
+                options: {
+                    importLoaders: 1,
+                },
+            },
+            {
+                loader: 'postcss-loader',
+                options: {
+                    postcssOptions: {
+                        plugins: [
+                            ['@tailwindcss/postcss']
+                        ],
+                    },
+                },
+            },
+        ],
+    });
 
     return config;
 };

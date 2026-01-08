@@ -19,6 +19,7 @@ We utilized a modern stack focused on performance, type safety, and ease of inte
     *   `@webflow/webflow-cli`: CLI tool to bundle and sync components.
 *   **Bundling**:
     *   **Vite**: Used to bundle the React component into a single library mode bundle (`dist/schweigen-downloads.umd.js`) for the Webflow Widget.
+    *   **Webpack**: Custom configuration in `webpack.webflow.js` ensures Webflow CLI processes Tailwind CSS via PostCSS during local development (`webflow extension serve`).
 
 ## 2. Key Files & Directory Structure
 
