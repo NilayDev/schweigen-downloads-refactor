@@ -137,7 +137,7 @@ export default function DownloadsTable({
                                 placeholder={searchPlaceholder}
                                 value={searchQuery}
                                 onChange={(e) => setSearchQuery(e.target.value)}
-                                className="w-full pl-7 pr-4 py-2 bg-transparent border-b border-slate-300 focus:border-slate-800 focus:outline-none transition-colors rounded-none placeholder:text-slate-400 text-sm"
+                                className="w-full pl-7 pr-4 py-2 bg-transparent border-b border-gray-400 focus:border-slate-900 border-solid focus:outline-none transition-colors rounded-none placeholder:text-slate-400 text-sm"
                             />
                         </div>
 
@@ -186,12 +186,12 @@ export default function DownloadsTable({
                 )}
 
                 {/* Main Content - Table */}
-                <div className="flex flex-col min-h-[600px]">
-                    <div className="rounded-none border-none">
-                        <Table>
+                <div className="flex flex-col min-h-[600px] w-full overflow-hidden">
+                    <div className="rounded-none border-none overflow-x-auto pb-4">
+                        <Table className="min-w-[800px] lg:min-w-0">
                             <TableHeader>
                                 <TableRow className="border-none hover:bg-transparent">
-                                    <TableHead className="w-[30%] pl-0">
+                                    <TableHead className="w-[40%] pl-0">
                                         {enableSorting ? (
                                             <button
                                                 onClick={() => handleSort('name')}
@@ -295,40 +295,36 @@ export default function DownloadsTable({
                                             </TableCell>
 
                                             {showCategoryColumn && (
-                                                <TableCell className="py-4 align-top text-slate-500 text-sm">
+                                                <TableCell className="py-4 align-top text-slate-500 text-sm whitespace-nowrap">
                                                     {item.primaryDownloadCategory}
                                                 </TableCell>
                                             )}
 
                                             {showProductCategoryColumn && (
-                                                <TableCell className="py-4 align-top text-slate-500 text-sm">
+                                                <TableCell className="py-4 align-top text-slate-500 text-sm whitespace-nowrap">
                                                     {item.primaryRelatedProductCategory}
                                                 </TableCell>
                                             )}
 
                                             {showFileSizeColumn && (
-                                                <TableCell className="py-4 align-top text-slate-500 text-sm">
+                                                <TableCell className="py-4 align-top text-slate-500 text-sm whitespace-nowrap">
                                                     {formatBytes(item.filesize)}
                                                 </TableCell>
                                             )}
 
                                             {showFileTypeColumn && (
-                                                <TableCell className="py-4 align-top text-slate-900 font-medium text-sm">
+                                                <TableCell className="py-4 align-top text-slate-900 font-medium text-sm whitespace-nowrap">
                                                     {item.fileType}
                                                 </TableCell>
                                             )}
 
-                                            <TableCell className="text-right pr-0 py-4 align-top">
+                                            <TableCell className="text-right pr-0 py-4 align-top whitespace-nowrap">
                                                 <a
                                                     href={item.downloadUrl}
                                                     target="_blank"
                                                     rel="noopener noreferrer"
                                                     onClick={(e) => {
                                                         if (redirectUrl) {
-                                                            // We want the default action to proceed (opening the download in a new tab)
-                                                            // but we also want to redirect the current window.
-                                                            // Using a small timeout ensures the click event propagates fully if needed,
-                                                            // though for _blank it's usually fine immediately.
                                                             setTimeout(() => {
                                                                 window.location.href = redirectUrl;
                                                             }, 100);
@@ -336,7 +332,7 @@ export default function DownloadsTable({
                                                     }}
                                                     className="inline-flex items-center text-sm font-medium text-slate-500 hover:text-rose-500 transition-colors"
                                                 >
-                                                    <span className="mr-2">{downloadButtonText}</span>
+                                                    <span className="mr-2 hidden sm:inline">{downloadButtonText}</span>
                                                     <div className="flex flex-col items-center">
                                                         <ArrowDown className="h-3 w-3" />
                                                         <div className="w-3 h-[1px] bg-current mt-[1px]"></div>
@@ -369,7 +365,7 @@ export default function DownloadsTable({
                                                 e.preventDefault();
                                                 if (currentPage > 1) setCurrentPage(currentPage - 1);
                                             }}
-                                            className={currentPage <= 1 ? "pointer-events-none opacity-50" : "cursor-pointer"}
+                                            className={`cursor-pointer hover:bg-gray-100 hover:text-slate-900 border-none ${currentPage <= 1 ? "pointer-events-none opacity-30" : ""}`}
                                         />
                                     </PaginationItem>
 
@@ -378,7 +374,7 @@ export default function DownloadsTable({
                                         const page = i + 1;
                                         if (totalPages > 7 && (page < currentPage - 1 || page > currentPage + 1) && page !== 1 && page !== totalPages) {
                                             if (page === currentPage - 2 || page === currentPage + 2) {
-                                                return <PaginationItem key={page}><span className="flex h-9 w-9 items-center justify-center">...</span></PaginationItem>
+                                                return <PaginationItem key={page}><span className="flex h-9 w-9 items-center justify-center text-slate-400">...</span></PaginationItem>
                                             }
                                             return null;
                                         }
@@ -392,6 +388,10 @@ export default function DownloadsTable({
                                                         e.preventDefault();
                                                         setCurrentPage(page);
                                                     }}
+                                                    className={`border-none h-9 w-9 font-medium transition-colors ${currentPage === page
+                                                        ? "bg-slate-900 text-white hover:bg-slate-800 hover:text-white"
+                                                        : "text-slate-500 hover:bg-gray-100 hover:text-slate-900"
+                                                        }`}
                                                 >
                                                     {page}
                                                 </PaginationLink>
@@ -406,7 +406,7 @@ export default function DownloadsTable({
                                                 e.preventDefault();
                                                 if (currentPage < totalPages) setCurrentPage(currentPage + 1);
                                             }}
-                                            className={currentPage >= totalPages ? "pointer-events-none opacity-50" : "cursor-pointer"}
+                                            className={`cursor-pointer hover:bg-gray-100 hover:text-slate-900 border-none ${currentPage >= totalPages ? "pointer-events-none opacity-30" : ""}`}
                                         />
                                     </PaginationItem>
                                 </PaginationContent>

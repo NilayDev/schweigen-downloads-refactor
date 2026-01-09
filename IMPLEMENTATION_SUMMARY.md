@@ -113,3 +113,8 @@ This structure is critical. The component's internal logic (`useDownloadsTableIt
 *   **`npm run dev`**: Start local dev server.
 *   **`npm run build:widget`**: Build the production bundle for Webflow.
 *   **`npm run webflow:share`**: Sync component to Webflow (requires login).
+
+## 6. CMS Integration
+Two methods are supported:
+1.  **JSON Embed (Advanced)**: See [CONNECT_WEBFLOW_CMS.md](./CONNECT_WEBFLOW_CMS.md).
+2.  **Hidden List (Easier)**: See [CONNECT_WEBFLOW_CMS_method2.md](./CONNECT_WEBFLOW_CMS_method2.md).

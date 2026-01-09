@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 
 export interface DownloadItem {
     id: string | number;
@@ -134,6 +134,11 @@ export function useDownloadsTableItems({ initialItems }: UseDownloadsTableItemsP
         }
         return result;
     }, [filteredItems, sortConfig]);
+
+    // Reset pagination when filters change
+    useEffect(() => {
+        setCurrentPage(1);
+    }, [searchQuery, categoryFilter, productCategoryFilter, fileTypeFilter]);
 
     const paginatedItems = useMemo(() => {
         const startIndex = (currentPage - 1) * itemsPerPage;
